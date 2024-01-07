@@ -116,3 +116,12 @@ print(d.values())
 # {["somevalue"]}
 ```
 
+## Alphabet Tricks
+```python
+# count char with array
+count = [0] * 26
+
+for c in "apple":
+    count[ord(c) - ord('a')] += 1
+print(count)
+```
