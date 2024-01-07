@@ -117,6 +117,7 @@ print(d.values())
 ```
 
 ## Alphabet Tricks
+### alphabet char counter
 ```python
 # count char with array
 count = [0] * 26
@@ -127,4 +128,12 @@ print(count)
 
 #  a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z 
 # [1,0,0,0,1,0,0,0,0,0,0,1,0,0,0,2,0,0,0,0,0,0,0,0,0,0]
+```
+### reverse string
+```python
+ans = "apple"
+ans[::-1] # "elppa"
+
+# compare palindrome
+return ans == ans[::-1]
 ```
