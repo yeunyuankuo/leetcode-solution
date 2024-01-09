@@ -1,4 +1,5 @@
 # Python fundamentals
+
 ## for loop
 ### 1. Use `range(start, stop[, step])` to loop within a certain range.
 * `start`: the index the loop starts from. Defualt is `0`
@@ -151,4 +152,12 @@ return n.isdigit()
 c = 'A1'
 return c.isalnum()
 # True
+```
+
+## sort list
+```python
+nums = [1, 2, 3, 4]
+nums.sort() # in-place sorting
+
+res = sorted(nums) # returns a sorted list
 ```
