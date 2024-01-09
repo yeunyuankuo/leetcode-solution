@@ -137,3 +137,18 @@ ans[::-1] # "elppa"
 # compare palindrome
 return ans == ans[::-1]
 ```
+
+### check if char is alphanumeric
+```python
+c = 'a'
+return c.isalpha()
+# True
+
+n = '1'
+return n.isdigit()
+# True
+
+c = 'A1'
+return c.isalnum()
+# True
+```
