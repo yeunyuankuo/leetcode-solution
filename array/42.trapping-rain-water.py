@@ -1,6 +1,6 @@
 def trap(self, height: list[int]) -> int:
     # time: O(N)
-    # space: O(N)
+    # space: O(1)
     res = 0
     l, r = 0, len(height)-1
     maxL, maxR = height[0], height[-1]

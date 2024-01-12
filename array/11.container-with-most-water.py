@@ -1,6 +1,6 @@
 def maxArea(self, height: list[int]) -> int:
     # time: O(N)
-    # space: O(N)
+    # space: O(1)
     l, r = 0, len(height)-1
     maxSum = 0
     while l < r:
