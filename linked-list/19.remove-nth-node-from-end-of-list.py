@@ -9,17 +9,17 @@ class Solution:
         # time: O(N)
         # space: O(1)
         dummy = ListNode(0, head)
-        slow = dummy
-        fast = head
+        itr, end = dummy, dummy
 
-        while n > 0 and fast:
-            fast = fast.next
+        while n > 0:
+            end = end.next
             n -= 1
 
-        while fast:
-            slow = slow.next
-            fast = fast.next
+        while end.next:
+            end = end.next
+            itr = itr.next
 
+        if itr:
+            itr.next = itr.next.next
         
-        slow.next = slow.next.next
         return dummy.next
