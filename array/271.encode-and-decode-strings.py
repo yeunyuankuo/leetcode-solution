@@ -14,15 +14,15 @@ class Codec:
         """
         # time: O(N)
         # space: O(N)
-        res = []
-        i = 0
-        while i < len(s):
-            j = i
-            while s[j] != '#':
-                j += 1
-            length = int(s[i:j])
-            i = j + 1
-            j = i + length
-            res.append(s[i:j])
-            i = j
-        return res
+        l, r = 0, 0
+        ans = []
+        while r < len(s):
+            if s[r] == '#':
+                length = int(s[l:r])
+                r += 1
+                ans.append(s[r:(r + length)])
+                r = r + length
+                l = r
+            else:
+                r += 1
+        return ans
