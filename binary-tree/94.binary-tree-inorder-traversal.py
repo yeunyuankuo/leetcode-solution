@@ -1,5 +1,5 @@
 class Solution:
-    def inorderTraversal(self, root: TreeNode) -> list[int]:
+    def inorderTraversalRecursive(self, root: TreeNode) -> list[int]:
         res = []
 
         def inorder(root):
@@ -13,7 +13,7 @@ class Solution:
         inorder(root)
         return res
     
-    def inorderTraversal(self, root: Optional[TreeNode]) -> list[int]:
+    def inorderTraversalIterative(self, root: Optional[TreeNode]) -> list[int]:
         if not root:                # 二叉树为空直接返回
             return []
         
