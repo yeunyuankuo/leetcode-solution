@@ -15,9 +15,6 @@ class Solution:
             
             if not node:
                 return 0
-            if not node.left and not node.right:
-                maxSum = max(maxSum, node.val)
-                return node.val
             
             # compare node.val with maxSum
             maxSum = max(maxSum, node.val)
@@ -33,7 +30,9 @@ class Solution:
             # compare node.val + left + right with maxSum
             total = left + right + node.val
             maxSum = max(maxSum, total)
-                        
+            
+            # return max (node.val, node.val + left, node.val + right)
+            # notice we won't compare and return node.val + left + right b/c this won't be a valid path when connected to other paths
             return max(node.val, max(left + node.val, right + node.val))
         
         dfs(root)
