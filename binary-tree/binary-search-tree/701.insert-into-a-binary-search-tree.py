@@ -18,19 +18,23 @@ class Solution:
         
         return root
     
-    
+
     def insertIntoBSTIterative(self, root: Optional[TreeNode], val: int) -> Optional[TreeNode]:
         # time: O(H), H is the tree height. O(logN) in average case, and O(N) in worst case
         # space: O(1): constant space
         node = root
         while node:
+            # insert into the right subtree
             if val > node.val:
+                # insert right now
                 if not node.right:
                     node.right = TreeNode(val)
                     return root
                 else:
                     node = node.right
+            # insert into the left subtree
             else:
+                # insert right now
                 if not node.left:
                     node.left = TreeNode(val)
                     return root
