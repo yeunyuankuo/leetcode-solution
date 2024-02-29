@@ -1,5 +1,5 @@
 class Solution:
-    def partition(self, s: str) -> List[List[str]]:
+    def partition(self, s: str) -> list[list[str]]:
         # time: O(N * 2^N), N is the length of string s. In worst case, there could be 2^N possible number of nodes
         # in the search tree, which is the number of possible partitionings. N * 2^N because for each partitioning
         # substring we need to check if its a palindrome, so times O(N) for palindrome checking.
