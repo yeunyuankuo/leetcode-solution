@@ -1,31 +1,44 @@
 class Solution:
-    def countComponents(self, n: int, edges: list[list[int]]) -> int:
-        # time: O(V + E * a(N))
-        # space: O(V)
-        roots = [i for i in range(n)]
-        ranks = [1] * n
+    def findCircleNum(self, isConnected: list[list[int]]) -> int:
+        n = len(isConnected)
 
+        # Initial root for each node be itself
+        root = [i for i in range(n)]
+        print(root)
+        
+        # The initial "rank" or connected nodes of each vertex is 1
+        # assuming all node are not connected
+        rank = [1] * n
+
+        # The find function here is the same as that in the disjoint set with path compression.
         def find(node):
-            while node != roots[node]:
-                roots[node] = roots[roots[node]]
-                node = roots[node]
+            # path compression
+            while node != root[node]:
+                root[node] = root[root[node]]
+                node = root[node]
             return node
 
+
+        # The union function with union by rank
         def union(n1, n2):
             r1, r2 = find(n1), find(n2)
 
+            # both nodes already in same set; no union needed
             if r1 == r2:
                 return 0
 
-            if ranks[r1] < ranks[r2]:
-                roots[r1] = r2
-                ranks[r2] += ranks[r1]
+            if rank[r1] < rank[r2]:
+                root[r1] = r2
+                rank[r2] += rank[r1]
             else:
-                roots[r2] = r1
-                ranks[r1] += ranks[r2]
+                root[r2] = r1
+                rank[r1] += rank[r2]
             return 1
 
         res = n
-        for e in edges:
-            res -= union(e[0], e[1])
+        for n1 in range(n):
+            for n2 in range(n1, n):
+                if isConnected[n1][n2] == 1:
+                    res -= union(n1, n2)
         return res
+                
