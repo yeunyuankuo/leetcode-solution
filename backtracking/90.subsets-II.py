@@ -1,5 +1,10 @@
 class Solution:
-    def subsetsWithDup(self, nums: List[int]) -> List[List[int]]:
+    def subsetsWithDup(self, nums: list[int]) -> list[list[int]]:
+        # time: O(N * 2^N), there are N element in nums, and for each num we have 2 choices
+        # either include or not include num, this results in 2^N possible subsets.
+        # 
+        # space: O(N * 2^N)
+
         res = []
         nums.sort()
 
@@ -20,7 +25,7 @@ class Solution:
                 # us to generate unique subsets.
                 if i > start and nums[i] == nums[i - 1]:
                     continue
-                
+
                 subset.append(nums[i])
                 bt(i + 1, subset)
                 subset.pop()
