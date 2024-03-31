@@ -1,16 +1,11 @@
 class Solution:
     def getMoneyAmount(self, n: int) -> int:
-        def print_matrix(matrix):
-            for row in matrix:
-                print(" ".join(map(str, row)))
-            print()
         # time: O(n^3)
         # space: O(n^2)
         # matrix[i][j]: stores the minimum amount needed for a subrange(i,j) of numbers
         # i -> starting point of the subrange of numbers being considered
         # j -> ending point of the subrange of numbers being considered
         dp = [[0 for _ in range(n + 1)] for _ in range(n + 1)]
-        print_matrix(dp)
 
         # length is the length of the subrange.
         # length is used to determine the end point of the subrange within the inner loop.
@@ -27,7 +22,6 @@ class Solution:
                 
                 # first give max val to subrange(i,j)
                 dp[i][j] = float('inf')
-                print_matrix(dp)
 
                 # - iterate through all possible guesses(k) in range(i,j-1).
                 # range(i,j-1) and not range(i,j) because By iterating k from i to j - 1, 
@@ -45,7 +39,6 @@ class Solution:
                 # +k because if we guess k then we need to add the value k
                 for k in range(i, j):
                     dp[i][j] = min(dp[i][j], max(dp[i][k - 1] + k, dp[k + 1][j] + k))
-                    print_matrix(dp)
 
         # get the min amount needed to win in subrange(1, n)
         return dp[1][n]
