@@ -2,7 +2,7 @@ class Solution:
     # Brute force solution - TLE
     # time: O(2^n)
     # space: O(n)
-    def findTargetSumWays(self, nums: List[int], target: int) -> int:
+    def findTargetSumWays(self, nums: list[int], target: int) -> int:
         size = len(nums)
 
         def dfs(i, currSum):
@@ -18,7 +18,7 @@ class Solution:
     # Memoization Solution with DP
     # time: O(2^n)
     # space: O(n)
-    def findTargetSumWays(self, nums: List[int], target: int) -> int:
+    def findTargetSumWays(self, nums: list[int], target: int) -> int:
         size = len(nums)
         table = dict()
 
